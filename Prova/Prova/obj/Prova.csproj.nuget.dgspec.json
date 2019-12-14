@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pioca_000\\source\\repos\\Prova\\Prova\\Prova.csproj": {}
+    "C:\\Users\\pioca_000\\Music\\Prova-FELIPE_NEIVA\\Prova\\Prova\\Prova.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pioca_000\\source\\repos\\Prova\\Prova\\Prova.csproj": {
+    "C:\\Users\\pioca_000\\Music\\Prova-FELIPE_NEIVA\\Prova\\Prova\\Prova.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pioca_000\\source\\repos\\Prova\\Prova\\Prova.csproj",
+        "projectUniqueName": "C:\\Users\\pioca_000\\Music\\Prova-FELIPE_NEIVA\\Prova\\Prova\\Prova.csproj",
         "projectName": "Prova",
-        "projectPath": "C:\\Users\\pioca_000\\source\\repos\\Prova\\Prova\\Prova.csproj",
+        "projectPath": "C:\\Users\\pioca_000\\Music\\Prova-FELIPE_NEIVA\\Prova\\Prova\\Prova.csproj",
         "packagesPath": "C:\\Users\\pioca_000\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pioca_000\\source\\repos\\Prova\\Prova\\obj\\",
+        "outputPath": "C:\\Users\\pioca_000\\Music\\Prova-FELIPE_NEIVA\\Prova\\Prova\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

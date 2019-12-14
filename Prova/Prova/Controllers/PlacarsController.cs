@@ -75,21 +75,20 @@ namespace Prova.Controllers
             return View(placar);
         }
 
-        // GET: Placars/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
             var placar = await _context.Placar.FindAsync(id);
+            var jogadores = _context.Jogador.OrderBy(x => x.Id).ToList();
             if (placar == null)
             {
                 return NotFound();
             }
-            ViewData["JogadorId"] = new SelectList(_context.Jogador, "Id", "Id", placar.JogadorId);
-            return View(placar);
+            var vm = new PlacarFormsViewModel { Jogadores = jogadores, Placar = placar };
+            return View(vm);
         }
 
         // POST: Placars/Edit/5
@@ -97,7 +96,7 @@ namespace Prova.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,JogadorId,Total,Data")] Placar placar)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,pontos,jogadorId,data")] Placar placar)
         {
             if (id != placar.Id)
             {
@@ -124,7 +123,6 @@ namespace Prova.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["JogadorId"] = new SelectList(_context.Jogador, "Id", "Id", placar.JogadorId);
             return View(placar);
         }
 
@@ -165,13 +163,9 @@ namespace Prova.Controllers
 
         public async Task<IActionResult> Melhores(int? id)
         {
-            var provaContext = _context.Placar.Include(p => p.Jogador).OrderByDescending(p => p.Total);
-            IOrderedQueryable<Placar> melhores;
-            for (int i = 0; i < 10; i++)
-            {
-                melhores[i] = provaContext[i];
-            }
-            return View(await melhores.ToListAsync());
+            var provaContext = _context.Placar.Include(p => p.Jogador).OrderByDescending(p => p.Total).Take(10);
+            
+            return View(await provaContext.ToListAsync());
         }
     }
 }
